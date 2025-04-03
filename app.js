@@ -1,5 +1,5 @@
 // Import React Router (it's already included in index.html)
-const { BrowserRouter, Route, Switch, Link, useHistory } = ReactRouterDOM;
+const { BrowserRouter, Route, Switch, Link, useHistory, HashRouter } = ReactRouterDOM;
 
 // Header Component
 function Header() {
@@ -614,7 +614,7 @@ function NetworkPage() {
 // Main App Component
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div className="app">
                 <Header />
                 <Switch>
@@ -639,7 +639,7 @@ function App() {
                     </Route>
                 </Switch>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
