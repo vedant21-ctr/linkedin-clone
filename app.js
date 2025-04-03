@@ -1,6 +1,15 @@
 // Import React Router (it's already included in index.html)
 const { BrowserRouter, Route, Switch, Link, useHistory, HashRouter } = ReactRouterDOM;
 
+// Add this at the top of the file
+(function() {
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+        history.replaceState(null, null, redirect);
+    }
+})();
+
 // Header Component
 function Header() {
     return (
@@ -614,7 +623,7 @@ function NetworkPage() {
 // Main App Component
 function App() {
     return (
-        <HashRouter>
+        <HashRouter basename="/">
             <div className="app">
                 <Header />
                 <Switch>
